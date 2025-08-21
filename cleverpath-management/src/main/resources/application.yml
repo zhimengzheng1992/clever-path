@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: cleverpath-management
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cleverpath_db
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update       # 开发阶段用 update；生产环境推荐 validate
+    show-sql: true           # 在控制台打印 SQL
+    properties:
+      hibernate:
+        format_sql: true     # 格式化 SQL，日志更易读
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
