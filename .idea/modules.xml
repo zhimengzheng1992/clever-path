@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/clever-path.iml" filepath="$PROJECT_DIR$/clever-path.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cleverpath-management/cleverpath-management.iml" filepath="$PROJECT_DIR$/cleverpath-management/cleverpath-management.iml" />
     </modules>
   </component>
 </project>
