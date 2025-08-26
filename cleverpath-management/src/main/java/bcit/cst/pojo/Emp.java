@@ -15,9 +15,9 @@ public class Emp {
     private String username;     // 用户名
     private String password;     // 密码
     private String name;         // 姓名
-    private Short gender;        // 性别, 1:男, 2:女
+    private Integer gender;        // 性别, 1:男, 2:女
     private String phone;        // 手机号
-    private Short job;           // 职位
+    private Integer job;           // 职位
     private Integer salary;      // 薪资
 
     @Column(length = 1000)

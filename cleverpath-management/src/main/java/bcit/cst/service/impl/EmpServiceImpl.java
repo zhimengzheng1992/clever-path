@@ -3,6 +3,7 @@ package bcit.cst.service.impl;
 import bcit.cst.dto.EmpAddDTO;
 import bcit.cst.dto.EmpDTO;
 import bcit.cst.dto.EmpExprDTO;
+import bcit.cst.dto.EmpUpdateDTO;
 import bcit.cst.pojo.*;
 import bcit.cst.repository.DeptRepository;
 import bcit.cst.repository.EmpExprRepository;
@@ -17,6 +18,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -222,6 +224,47 @@ public class EmpServiceImpl implements EmpService
         dto.setExprList(exprDTOs);
 
         return dto;
+    }
+
+    @Override
+    @Transactional
+    public void update(EmpUpdateDTO dto)
+    {
+        // 查父表
+        Emp emp = empRepository.findById(dto.getId())
+                .orElseThrow(() -> new RuntimeException("员工不存在"));
+
+        // 更新父表字段
+        emp.setName(dto.getName());
+        emp.setUsername(dto.getUsername());
+        emp.setGender(dto.getGender());
+        emp.setPhone(dto.getPhone());
+        emp.setJob(dto.getJob());
+        emp.setSalary(dto.getSalary());
+        emp.setImage(dto.getImage());
+        emp.setEntryDate(dto.getEntryDate());
+        emp.setDeptId(dto.getDeptId());
+        emp.setUpdateTime(LocalDateTime.now());
+        empRepository.save(emp);
+
+        // 更新子表：先删再插
+        empExprRepository.deleteByEmp_IdIn(Collections.singletonList(dto.getId()));
+
+        if (dto.getExprList() != null && !dto.getExprList().isEmpty()) {
+            List<EmpExpr> exprList = dto.getExprList().stream()
+                    .map(exprDTO -> {
+                        EmpExpr expr = new EmpExpr();
+                        expr.setEmp(emp);
+                        expr.setCompany(exprDTO.getCompany());
+                        expr.setJob(exprDTO.getJob());
+                        expr.setBegin(exprDTO.getBegin());
+                        expr.setEnd(exprDTO.getEnd());
+                        return expr;
+                    })
+                    .collect(Collectors.toList());
+
+            empExprRepository.saveAll(exprList); // 批量插入，更高效
+        }
     }
 }
 

@@ -18,9 +18,9 @@ public class EmpDTO {
     private Long id;
     private String username;
     private String name;
-    private Short gender;
+    private Integer gender;
     private String phone;
-    private Short job;
+    private Integer job;
     private Integer salary;
     private String image;
     private LocalDate entryDate;

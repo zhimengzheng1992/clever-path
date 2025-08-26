@@ -2,6 +2,7 @@ package bcit.cst.controller;
 
 import bcit.cst.dto.EmpAddDTO;
 import bcit.cst.dto.EmpDTO;
+import bcit.cst.dto.EmpUpdateDTO;
 import bcit.cst.pojo.EmpQueryParam;
 import bcit.cst.pojo.PageResult;
 import bcit.cst.pojo.Result;
@@ -73,5 +74,13 @@ public class EmpController
         // Implementation to fetch employee by id
         EmpDTO empDTO = empService.getById(id);
         return Result.success(empDTO);
+    }
+
+    @PutMapping
+    public Result<Void> update(@RequestBody EmpUpdateDTO empUpdateDTO) {
+        log.info("Updating employee: {}", empUpdateDTO);
+        // Implementation to update employee
+         empService.update(empUpdateDTO);
+        return Result.success();
     }
 }

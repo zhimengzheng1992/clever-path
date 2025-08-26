@@ -22,4 +22,5 @@ public interface EmpExprRepository extends JpaRepository<EmpExpr, Integer> {
     List<EmpExpr> findByEndBetween(LocalDate start, LocalDate end);
 
     void deleteByEmp_IdIn(List<Long> ids);
+
 }

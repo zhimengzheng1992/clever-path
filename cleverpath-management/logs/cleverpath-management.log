@@ -1,0 +1,12 @@
+2025-08-21 14:34:13.466 [main] INFO  bcit.cst.LogTest - This is an INFO log - general application flow
+2025-08-21 14:34:13.467 [main] WARN  bcit.cst.LogTest - This is a WARN log - something unexpected, but not critical
+2025-08-21 14:34:13.467 [main] ERROR bcit.cst.LogTest - This is an ERROR log - something went wrong
+2025-08-21 14:49:14.148 [main] INFO  bcit.cst.LogTest - This is an INFO log - general application flow
+2025-08-21 14:49:14.148 [main] INFO  bcit.cst.LogTest - This is an INFO log - general application flow
+2025-08-21 14:49:14.150 [main] WARN  bcit.cst.LogTest - This is a WARN log - something unexpected, but not critical
+2025-08-21 14:49:14.150 [main] WARN  bcit.cst.LogTest - This is a WARN log - something unexpected, but not critical
+2025-08-21 14:49:14.150 [main] ERROR bcit.cst.LogTest - This is an ERROR log - something went wrong
+2025-08-21 14:49:14.150 [main] ERROR bcit.cst.LogTest - This is an ERROR log - something went wrong
+2025-08-21 15:01:10.154 [main] INFO  bcit.cst.LogTest - This is an INFO log - general application flow
+2025-08-21 15:01:10.156 [main] WARN  bcit.cst.LogTest - This is a WARN log - something unexpected, but not critical
+2025-08-21 15:01:10.156 [main] ERROR bcit.cst.LogTest - This is an ERROR log - something went wrong
