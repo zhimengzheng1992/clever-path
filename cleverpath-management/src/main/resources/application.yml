@@ -17,3 +17,13 @@ spring:
     date-format: yyyy-MM-dd'T'HH:mm:ss
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
+springdoc:
+  swagger-ui:
+    url: /openapi.json   # ✅ 告诉 swagger-ui 去加载 static 下的 openapi.json
+
+aws:
+  region: us-east-2
+  s3:
+    bucket: cleverpath-awsbucket
+    prefix: uploads/
+    presign-expiration-minutes: 15

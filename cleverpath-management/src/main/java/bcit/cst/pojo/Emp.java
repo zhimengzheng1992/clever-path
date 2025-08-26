@@ -19,9 +19,13 @@ public class Emp {
     private String phone;        // 手机号
     private Short job;           // 职位
     private Integer salary;      // 薪资
+
+    @Column(length = 1000)
     private String image;        // 头像
+
     private LocalDate entryDate; // 入职日期 -> 自动映射 entry_date
-    private Integer deptId;      // 部门ID -> 自动映射 dept_id
+    private Long deptId;      // 部门ID -> 自动映射 dept_id
     private LocalDateTime createTime; // 创建时间 -> 自动映射 create_time
     private LocalDateTime updateTime; // 修改时间 -> 自动映射 update_time
+
 }
