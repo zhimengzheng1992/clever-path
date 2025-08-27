@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface EmpExprRepository extends JpaRepository<EmpExpr, Integer> {
+public interface EmpExprRepository extends JpaRepository<EmpExpr, Long> {
 
     // 根据员工ID查找经历
     List<EmpExpr> findByEmp_Id(Long empId);

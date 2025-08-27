@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+
 /**
  * @author Zhimeng Zheng
  * @version 2025-08-20
@@ -25,7 +26,7 @@ public class Dept {
     private String name;
 
     @CreatedDate
-    @Column(name = "create_time" , updatable = false)
+    @Column(name = "create_time", updatable = false)
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createTime;
 

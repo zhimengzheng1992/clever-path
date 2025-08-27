@@ -1,6 +1,7 @@
 package bcit.cst.service;
 
 import bcit.cst.pojo.Dept;
+
 import java.util.List;
 
 public interface DeptService {

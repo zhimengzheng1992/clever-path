@@ -4,8 +4,6 @@ import bcit.cst.pojo.Dept;
 import bcit.cst.pojo.Result;
 import bcit.cst.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +13,10 @@ import java.util.List;
 @RequestMapping("/depts")   // 所有接口路径前缀
 public class DeptController {
 
-//    private static final Logger logger = LoggerFactory.getLogger(DeptController.class);
+    //    private static final Logger logger = LoggerFactory.getLogger(DeptController.class);
     private final DeptService deptService;
 
-    public DeptController(DeptService deptService)
-    {
+    public DeptController(DeptService deptService) {
         this.deptService = deptService;
     }
 
@@ -64,8 +61,7 @@ public class DeptController {
     }
 
     @DeleteMapping
-    public Result<Void> deleteDeptByParam(Long id)
-    {
+    public Result<Void> deleteDeptByParam(Long id) {
         deptService.delete(id);
         return Result.success();
     }

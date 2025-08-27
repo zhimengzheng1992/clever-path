@@ -2,7 +2,6 @@ package bcit.cst.pojo;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDate;
 
@@ -14,7 +13,7 @@ public class EmpExpr {
     // --- Getter/Setter ---
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 对应 PostgreSQL 的 serial
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emp_id", nullable = false)

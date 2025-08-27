@@ -8,7 +8,6 @@ import bcit.cst.pojo.PageResult;
 import bcit.cst.pojo.Result;
 import bcit.cst.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +20,10 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/emps")
-public class EmpController
-{
+public class EmpController {
     private final EmpService empService;
 
-    public EmpController(EmpService empService)
-    {
+    public EmpController(EmpService empService) {
         this.empService = empService;
     }
 
@@ -44,7 +41,7 @@ public class EmpController
 //    }
 
     @GetMapping
-    public Result<PageResult<EmpDTO>> list(EmpQueryParam empQueryParam){
+    public Result<PageResult<EmpDTO>> list(EmpQueryParam empQueryParam) {
         log.info("Pagination query: {}", empQueryParam);
         PageResult<EmpDTO> pageResult = empService.getEmployees(empQueryParam);
         return Result.success(pageResult);
@@ -54,15 +51,14 @@ public class EmpController
      * add employee
      */
     @PostMapping
-    public Result<Void> add(@RequestBody EmpAddDTO empAddDTO)
-    {
+    public Result<Void> add(@RequestBody EmpAddDTO empAddDTO) {
         log.info("Adding new employee: {}", empAddDTO);
         empService.add(empAddDTO);
         return Result.success();
     }
 
     @DeleteMapping
-    public Result<Void> delete(@RequestParam List<Long> ids){
+    public Result<Void> delete(@RequestParam List<Long> ids) {
         log.info("Batch delete employees: {}", ids);
         empService.deleteBatch(ids);
         return Result.success();
@@ -80,7 +76,7 @@ public class EmpController
     public Result<Void> update(@RequestBody EmpUpdateDTO empUpdateDTO) {
         log.info("Updating employee: {}", empUpdateDTO);
         // Implementation to update employee
-         empService.update(empUpdateDTO);
+        empService.update(empUpdateDTO);
         return Result.success();
     }
 }

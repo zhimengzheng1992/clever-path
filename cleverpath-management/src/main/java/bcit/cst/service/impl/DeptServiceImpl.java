@@ -12,13 +12,11 @@ import java.util.List;
  * @version 2025-08-20
  */
 @Service
-public class DeptServiceImpl implements DeptService
-{
+public class DeptServiceImpl implements DeptService {
 
     private final DeptRepository deptRepository;
 
-    public DeptServiceImpl(DeptRepository deptRepository)
-    {
+    public DeptServiceImpl(DeptRepository deptRepository) {
         this.deptRepository = deptRepository;
     }
 

@@ -3,15 +3,12 @@ package bcit.cst.service;
 import bcit.cst.dto.EmpAddDTO;
 import bcit.cst.dto.EmpDTO;
 import bcit.cst.dto.EmpUpdateDTO;
-import bcit.cst.pojo.Emp;
 import bcit.cst.pojo.EmpQueryParam;
 import bcit.cst.pojo.PageResult;
 
-import java.time.LocalDate;
 import java.util.List;
 
-public interface EmpService
-{
+public interface EmpService {
     PageResult<EmpDTO> getEmployees(EmpQueryParam empQueryParam);
 
     void add(EmpAddDTO empAddDTO);

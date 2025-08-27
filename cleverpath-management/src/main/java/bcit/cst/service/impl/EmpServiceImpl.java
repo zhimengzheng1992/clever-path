@@ -10,12 +10,12 @@ import bcit.cst.repository.EmpExprRepository;
 import bcit.cst.repository.EmpRepository;
 import bcit.cst.service.EmpService;
 import bcit.cst.util.SpecificationUtils;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -25,8 +25,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class EmpServiceImpl implements EmpService
-{
+public class EmpServiceImpl implements EmpService {
 
     private final EmpRepository empRepository;
     private final DeptRepository deptRepository;
@@ -141,8 +140,7 @@ public class EmpServiceImpl implements EmpService
 
     @Override
     @Transactional
-    public void add(EmpAddDTO empAddDTO)
-    {
+    public void add(EmpAddDTO empAddDTO) {
         // 1. 保存员工基本信息
         Emp emp = new Emp();
         emp.setUsername(empAddDTO.getUsername());
@@ -181,8 +179,7 @@ public class EmpServiceImpl implements EmpService
 
     @Override
     @Transactional
-    public void deleteBatch(List<Long> ids)
-    {
+    public void deleteBatch(List<Long> ids) {
         // 先删子表
         empExprRepository.deleteByEmp_IdIn(ids);
         // 再删父表
@@ -190,8 +187,7 @@ public class EmpServiceImpl implements EmpService
     }
 
     @Override
-    public EmpDTO getById(Long id)
-    {
+    public EmpDTO getById(Long id) {
         Emp emp = empRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("员工不存在"));
 
@@ -228,23 +224,41 @@ public class EmpServiceImpl implements EmpService
 
     @Override
     @Transactional
-    public void update(EmpUpdateDTO dto)
-    {
+    public void update(EmpUpdateDTO dto) {
         // 查父表
         Emp emp = empRepository.findById(dto.getId())
-                .orElseThrow(() -> new RuntimeException("员工不存在"));
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
 
         // 更新父表字段
-        emp.setName(dto.getName());
-        emp.setUsername(dto.getUsername());
-        emp.setGender(dto.getGender());
-        emp.setPhone(dto.getPhone());
-        emp.setJob(dto.getJob());
-        emp.setSalary(dto.getSalary());
-        emp.setImage(dto.getImage());
-        emp.setEntryDate(dto.getEntryDate());
-        emp.setDeptId(dto.getDeptId());
+        if (dto.getName() != null) {
+            emp.setName(dto.getName());
+        }
+        if (dto.getUsername() != null) {
+            emp.setUsername(dto.getUsername());
+        }
+        if (dto.getGender() != null) {
+            emp.setGender(dto.getGender());
+        }
+        if (dto.getPhone() != null) {
+            emp.setPhone(dto.getPhone());
+        }
+        if (dto.getJob() != null) {
+            emp.setJob(dto.getJob());
+        }
+        if (dto.getSalary() != null) {
+            emp.setSalary(dto.getSalary());
+        }
+        if (dto.getImage() != null) {
+            emp.setImage(dto.getImage());
+        }
+        if (dto.getEntryDate() != null) {
+            emp.setEntryDate(dto.getEntryDate());
+        }
+        if (dto.getDeptId() != null) {
+            emp.setDeptId(dto.getDeptId());
+        }
         emp.setUpdateTime(LocalDateTime.now());
+
         empRepository.save(emp);
 
         // 更新子表：先删再插
