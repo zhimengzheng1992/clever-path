@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Result<T> {
     private Integer code;  // 状态码: 200=成功, 400/500=错误
-    private String message; // 描述信息
+    private String msg; // 描述信息
     private T data;         // 返回的数据
 
     // 静态方法: 快速返回成功或失败结果

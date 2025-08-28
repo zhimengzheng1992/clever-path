@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/cleverpath-management/pom.xml" />
+        <option value="$PROJECT_DIR$/clever-path-pojo/pom.xml" />
+        <option value="$PROJECT_DIR$/clever-path-utils/pom.xml" />
       </list>
     </option>
   </component>

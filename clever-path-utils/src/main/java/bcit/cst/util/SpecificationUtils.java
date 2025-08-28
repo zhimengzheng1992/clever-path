@@ -1,7 +1,7 @@
 package bcit.cst.util;
 
-import bcit.cst.pojo.EmpQueryParam;
 import bcit.cst.pojo.Emp;
+import bcit.cst.pojo.EmpQueryParam;
 import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 

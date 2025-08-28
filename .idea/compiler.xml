@@ -12,6 +12,13 @@
         </processorPath>
         <module name="cleverpath-management" />
       </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="clever-path-pojo" />
+        <module name="clever-path-utils" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="21" />
   </component>
